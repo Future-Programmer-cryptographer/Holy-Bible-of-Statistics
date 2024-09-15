@@ -8,6 +8,10 @@
 \usepackage{float}
 \usepackage{wrapfig}
 \usepackage{hyperref,cleveref,comment}
+\usepackage{setspace}
+\doublespacing
+\addtolength{\jot}{1em}
+\usepackage{mathtools}
 \usepackage{unicode-math}
 \usepackage{titlesec}
 \usepackage{verbatim}
@@ -28,11 +32,14 @@
 \setmathfont{NewComputerModernMath}[math-style=TeX,bold-style=upright]
 
 
+
 \title{Holy Bible of Statistics}
 \author{
-  Authors: Isaac Eason \& Arush Panwalkar\\
+  Authors: Arush Panwalkar \& Shubhangee Das\\
   \and
   Typesetter: Arush Panwalkar\\
+  \and
+  Credits to: Isaac Eason
 }
 \date{\today}
 
@@ -42,7 +49,6 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[theorem]
 \newtheorem{corollary}{Corollary}[theorem]
-\theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \theoremstyle{definition}
 \newtheorem*{example}{Example}
@@ -51,20 +57,23 @@
 \newtheorem*{claim}{Claim}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem*{exercise}{Exercise}
 \tableofcontents
 
 \chapter{Data}
+\input{Data}
 
 \chapter{Probability}
+\input{Probability}
 
-\chapter{Discrete random variables}
+\chapter{Discrete Random Variables}
+\input{DRV}
 
-\chapter{Continuous random variables}
+\chapter{Continuous Random Variables}
+\input{CRV}
 
-\chapter{Discrete distributions}
-
-\chapter{Continuous distributions}
-
-\chapter{Statistical inference}
+\chapter{Statistical Inference}
+\input{Statistical inference}
 
 \end{document}

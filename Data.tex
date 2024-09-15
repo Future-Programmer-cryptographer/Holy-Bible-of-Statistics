@@ -1,0 +1,335 @@
+\section{Types of data}
+
+Any given datum may be either qualitative or quantitative — that is, a datum may be either categorical or numerical in nature respectively.
+Qualitative data is most commonly given in words; for example, the colour of a car. It is used to describe something, rather than enumerate or measure it.
+Quantitative data is used to enumerate or measure things. Quantitative data is always given in numbers; for example, the number of pets a student has.
+
+Quantitative data can take two forms: discrete or continuous. We can define these as follows:
+
+\begin{tcolorbox}
+    \begin{definition}[Discrete data]
+        Discrete data is defined as data which can take values from a finite or countable set.
+    \end{definition}
+    \tcblower
+    We should note that when we refer to a 'countable set', we mean a set such that there is a one-to-one correspondence (a \textit{bijection}) between the set and the natural numbers.
+\end{tcolorbox}
+
+An example of discrete data from a finite set is the number on the side of a die for a given roll. It can only take values from the set $\{ 1,2,3,4,5,6 \}$.
+An example of discrete data from a countable set is the number of customers that enter a store on a particular day. This data can only take values from the set $\mathbb{N}_0$.
+Discrete data is data which is \textbf{enumerated} (counted), not \textbf{measured}.
+
+\begin{tcolorbox}
+    \begin{definition}[Continuous data]
+        Continuous data is defined as data which may take any value from the union of continuous intervals.
+    \end{definition}
+    \tcblower
+    This means that a continuous data point may take any value inside a collection of intervals, as long as there are no gaps within the intervals.
+\end{tcolorbox}
+Here are two examples 
+The height of a tower can be any positive value. Therefore, the data can draw its values from the interval $[0, \infty)$, which is the set $\{ x \mid x \geq 0 \}$.
+
+We can imagine an arbitrary continuous data set that draws its values from $[-17, 35) \cup (64, 93]$. This is the same as saying for a data point $x$, $x \in \{ n \mid -17 \leq n < 35\} \cup \{ n \mid 64 < n \leq 93 \}$. 
+
+This is still continuous, even though the two intervals are disjoint (they share no common values). This is because within each interval, there are an infinite number of values that the data point could take, so it is still continuous data. We can also see that for the height of a tower, we do not enumerate or count it, but \textbf{measure} it, since it is continuous.
+
+\begin{tcolorbox}
+    \begin{remark}[Important!]
+       We must note that some quantities can be discrete or continuous depending on the context. For example, if age is defined as 'the number of years a person has been alive', it will be discrete. If age is defined instead as 'for how much time a person has been alive', it will be continuous. 
+    \end{remark}
+\end{tcolorbox}
+
+\section{Population and sample}
+
+We must delineate between a \textit{population} and a \textit{sample} as two different frames for us to conduct statistics on.
+
+\begin{tcolorbox}
+    \begin{definition}[Population]
+        A population (or universe) refers to the entire group that you are interested in.
+    \end{definition}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{definition}[Sample]
+        A sample refers to a subset of the population which you use to collect data.
+    \end{definition}
+\end{tcolorbox}
+
+We must also define a list of all members of the population which are eligible for sampling. We refer to this as the \textit{sampling frame}.
+
+\begin{tcolorbox}
+    \begin{definition}[Sampling frame]
+        A sampling frame is a set which is a subset of the population, which defines all of the members of a population which are eligible to be sampled.
+    \end{definition}
+\end{tcolorbox}
+
+We may note here that for a population $\mathcal{U}$, a sample $\symbf{X}$ and a sampling frame $\Omega$, $\symbf{X} \subseteq \Omega \subseteq \mathcal{U}$.
+
+When dealing with numerical values calculated from the population or the sample, we refer to them differently in notation and vocabulary. A value which describes a characteristic of the population is referred to as a \textbf{(population) parameter}, and is represented with lowercase Greek letters (e.g., $\varrho$, $\sigma$, $\mu$). A value which describes a characteristic of the sample is referred to as a \textbf{(sample) statistic}, and is represented with lowercase Latin letters (e.g., $r$, $s$, $\bar{x}$).
+
+\section{Sampling techniques}
+
+When the resources are available, we generally want to do a \textit{census}. A census collects data from every member of the population, giving a near guarantee of fully accurate results. Unfortunately, running a census is time-consuming and resource-heavy.
+
+Failing that, we are still able to create a sample, which we can use to make conclusions which are representative of the entire population. While we cannot guarantee that a sample is perfectly representative of its population, we can use \textit{sampling techniques} to systematically choose elements of the sample from the population, in order to increase the validity of the study's results.
+
+You need to know the following sampling techniques.
+
+\subsection{Simple random sampling}
+
+\begin{tcolorbox}
+    \begin{definition}[Simple random sampling]
+        Simple random sampling relies solely on the following condition: for a population of size $n$, every member of the population has a $\frac{1}{n}$ chance of being selected.
+    \end{definition}
+\end{tcolorbox}
+
+This is generally carried out by giving every member of the population an index number, and then selecting numbers at random, picking the member of the population with that number as index, and repeating until the sample has the required number of people.
+
+While simple random sampling is useful when you want a random sample to avoid bias, or when the population is small, it is not practical when the population is too large to effectively give index numbers to each of the members.
+
+\subsection{Systematic sampling}
+
+\begin{tcolorbox}
+    \begin{definition}[Systematic sampling]
+        Systematic sampling is the process of choosing members of the population at regular intervals.
+    \end{definition}
+\end{tcolorbox}
+
+The interval $k$ is defined as the nearest integer to the ratio of the size of the population $N$ over the size of the sample $n$. Mathematically, $k = \mathrm{round}\big(\frac{N}{n}\big)$, where $\mathrm{round}$ is a function that rounds a real number to the nearest integer. From there, we select a random member of the population within the first $k$ members; we will index this as $r$, and add it to our sample. Then, we count forward from $r$, adding all members which are the next $k$-th elements; that is, their index is expressible as $r+nk$ where $n$ is a positive integer. We do so until we reach or exceed the population.
+
+Systematic sampling is most useful when there is a \textit{natural order} to the list — for example, names listed in alphabetical order. This list is not necessarily random; for true random systematic sampling, the list would need to randomly ordered. Despite this, due to the randomness of selecting the starting point, systematic sampling is valid for lists which are not ordered in a biased way.
+
+Unfortunately, systematic sampling has the same issue as simple random sampling, as it is impractical when the population is too large to effectively list out.
+
+\subsection{Stratified sampling}
+
+\begin{tcolorbox}
+    \begin{definition}[Stratified sampling]
+        Stratified sampling is the process of dividing the population into groups called strata and taking a random sample from each stratum.
+    \end{definition}
+\end{tcolorbox}
+
+First, the strata are created based on qualities of the population. The strata could be made based on qualities like age ranges, gender, et cetera. The stratification is then applied to the population, and then random sampling (though not necessarily simple) is used to pick the sample members from the strata.
+
+We should note here that the proportion of the sample that belongs to the stratum is exactly equal to the proportion of the sample that belongs to the population. Thus, for a population of size $N$, a sample of size $n$, and a stratum of size $\nu$, the number of people sampled from a stratum ($k$) is given by $k = \frac{N}{n}\nu$.
+
+Stratified sampling is useful when the population can easily be split into multiple distinct groups, especially when the differences are noticeable in certain groups. It is also useful as the generated sample will be random due to the use of random sampling when choosing sample members from the stratum. Stratified sampling cannot be used if the population cannot be split into these distinct groups.
+
+\subsection{Quota sampling}
+
+\begin{tcolorbox}
+    \begin{definition}[Quota sampling]
+        Quota sampling is where the population is stratified and members are then picked out of the strata to join the sample until certain quotas are met.
+    \end{definition}
+\end{tcolorbox}
+
+An example of a quota is: "there must be at least 3 people selected from the strata defined by [earn less than \$30,000 per year] who are between the ages of 35 and 40".
+
+Quota sampling is, by definition, a non-probabilistic version of stratified sampling, as the proportion of the sample that belongs to the stratum is defined by a quota, and is therefore not necessarily equal to the proportion of the sample that belongs to the population. Furthermore, members of the population may themselves choose not to be part of the sample, so the sampler must choose another member of the stratum.
+
+This is most useful when a sampling frame is not available; for example, surveying people on the street. Due to its non-probabilistic nature and the fact that members of the population may choose not to be included, however, it is non-random and therefore may introduce bias into the results.
+
+\subsection{Opportunity sampling}
+
+\begin{tcolorbox}
+    \begin{definition}[Opportunity sampling]
+        Opportunity or convenience sampling is when a sample is formed from available members of the population who fit the criteria.
+    \end{definition}
+\end{tcolorbox}
+
+Opportunity sampling is used when the timescale is small, and when a sampling frame cannot be generated. Since it only deals with members of the population who are available, it is unlikely to be representative of the population in question.
+
+The main things to note about sampling techniques are the following:
+\begin{enumerate}
+    \item \textit{Most sampling techniques can be improved by increasing the size of the sample.} Increasing the size of the sample increases the reach of the sampling process, giving a nuanced and wide-reaching conclusion.
+    \item \textit{You must minimise the bias within a sample.} Non-probabilistic sampling techniques like quota and opportunity sampling often introduce bias to the sample. Using random sampling techniques is always better if the option is available.
+    \item \textit{A sample only gives information about those members, not the whole population.} Different samples may lead to different conclusions about the population.
+\end{enumerate}
+
+\section{Summary statistics}
+
+In statistics, we almost always want measures to clarify properties of a set of data. The first category of these statistical measures are \textit{summary statistics}, which are information that summarises a set of data values. The first set of these are \textit{measures of location}; these describe the location of specific points on the data set. 
+
+\subsection{Measures of central tendency}
+
+We will first look at \textit{measures of central tendency}, which describe the location of the centre of the data set. The main measures are the (arithmetic) \textit{mean}, \textit{median}, \textit{mode} and \textit{midrange}. They are all types of averages, so you must be specific about which one you are using.
+
+\begin{tcolorbox}
+    \begin{definition}[Mode]
+        The mode of a dataset is/are the value(s) which appear most frequently in the set. 
+    \end{definition}
+\end{tcolorbox}
+
+To find the mode of a data set, you simply look for the value which appears the most frequently. For example, the mode of the set $\{ 1,2,6,4,1,7,2,1,1 \}$ is $1$, because it appears more times in the set than any other value. We refer to data sets with only one mode as \textit{unimodal}. In the set $\{ 1,2,6,4,1,7,2 \}$, both $1$ and $2$ appear the same number of times, more than any other value; thus, there are two modes, and the set is called \textit{bimodal}. If there were 3 modes, it would be trimodal, and more modes would mean the data set is \textit{polymodal}.
+
+\begin{tcolorbox}
+    \begin{definition}[Median]
+        The median is the middle value of the data set when all of the values are arranged in ascending order.
+    \end{definition}
+\end{tcolorbox}
+
+To find the median of a data set, you arrange the set values in ascending order, and you find the middle value. For example, the median of the set $\{ 5,2,7,1,3 \}$ is $3$, as we arrange the set as $\{ 1,2,3,5,7 \}$ and see that $3$ is in the middle. If the set has an even number of values, like the set $\{1,2,3,4\}$, the median of the set is the midpoint of the two middle values — in this case, the median is $\frac{3+2}{2}=2.5$.
+
+\begin{tcolorbox}
+    \begin{definition}[Mean]
+        The (arithmetic) mean of a dataset is simply defined as the sum of all of the values in the dataset divided by the number of items in the dataset.
+    \end{definition}
+\end{tcolorbox}
+
+We can notate this with summation notation. If a data set comprises $n$ items, then the sum of all of the values of the data set is notated as $$\sum_{i=1}^n x_i = x_1 + x_2 + x_3 + \ldots + x_n$$ where $x_i$ is the $i$-th member of the dataset. This is often written as just $\sum x$ since the $i$ notation is fairly implicit.
+
+Thus, we can define the mean ($\bar{x}$, read as "$x$ bar") as follows. $$\bar{x}=\frac{\sum x}{n}$$ (We may note here also that in some cases, we delineate between the sample mean $\bar{x}$ and the population mean $\mu$.)
+
+\begin{tcolorbox}
+    \begin{definition}[Midrange]
+        The midrange is defined as the mean of the largest and smallest values of the data set.
+    \end{definition}
+\end{tcolorbox}
+
+We can write this mathematically as follows. $$\mathrm{Midrange}=\frac{\mathrm{Max}(x)+\mathrm{Min}(x)}{2}$$
+
+When choosing the best measure of central tendency, you should look at the data set in question. The mean uses all of the data values, and so it is good for large sets with very few outliers, but bad for sets with extreme values. The median does not consider these extreme values, and so is good for these sets. The mode is useful in many practical situations, but there may be sets with no modes, or polymodal sets, or sets with modes that are nowhere near the middle of the data set. The midrange is useful in data sets which are small or largely symmetrical, but is drastically influenced by extreme values.
+
+\subsection{Quartiles and percentiles}
+
+We will now look at measures of location pertaining to specific points in the data through the use of quartiles and percentiles. Percentiles split the data into 100 parts. The $n$-th percentile lies $n\%$ through the data set; thus, $n\%$ of the data is below it, and $(100-n)\%$ of the data lies above it.
+
+These are useful for picking out specific points of the data set, but the most important percentiles are the 25th, 50th and 75th percentiles.
+
+\begin{tcolorbox}
+    \begin{definition}[Quartile]
+        A quartile is a value which lies either 25\%, 50\% or 75\% through the data. We refer to them as the lower quartile, median and upper quartile respectively, notating them as $Q_1$, $Q_2$ and $Q_3$ respectively.
+    \end{definition}
+\end{tcolorbox}
+
+For a data set of size $n$,
+\begin{itemize}
+    \item To find $Q_1$, find $\frac{n}{4}$ and call it $r$. If $r$ is an integer, and $x_i$ is the $i$-th member of the data set, $Q_1$ is the midpoint of $x_r$ and $x_{r+1}$. If $r$ is not an integer, $Q_1$ is $x_{\lceil r \rceil}$. Note here that $\lceil r \rceil$ refers to the nearest integer above $r$.
+    \item To find $Q_3$, find $\frac{3n}{4}$ and call it $p$. If $p$ is an integer, and $x_i$ is the $i$-th member of the data set, $Q_3$ is the midpoint of $x_p$ and $x_{p+1}$. If $p$ is not an integer, $Q_3$ is $x_{\lceil p \rceil}$.
+\end{itemize}
+
+Your calculator can also find quartiles and other summary statistics for you in the \texttt{Statistics} mode.
+
+\subsection{Measures of spread}
+
+A measure of spread is \textbf{not} a measure of location. It is instead a summary statistic which describes how spread out a data set's values are.
+
+The most basic measure of spread is the \textit{range}.
+\begin{tcolorbox}
+    \begin{definition}[Range]
+        The range of a data set is the total span of the entire data set from the minimum value to the maximum value. $\mathrm{Range}= \mathrm{Max}(x)-\mathrm{Min}(x)$
+    \end{definition}
+\end{tcolorbox}
+
+While the range is a decent measure for sets without extreme values, it is not usable for sets with extreme values. Instead, we use the \textit{interquartile range}.
+
+\begin{tcolorbox}
+    \begin{definition}[Interquartile range]
+        The interquartile range, or IQR, is defined as the difference between the upper and lower quartiles. $\mathrm{IQR}=Q_3 - Q_1$.
+    \end{definition}
+\end{tcolorbox}
+
+The IQR is, in most cases, a far better measure of spread than the range, as it does not consider any outliers, including only the middle 50\%. The measures you are likely to meet the most, however, are \textit{variance} and \textit{standard deviation}.
+
+\subsection{Standard deviation and variance}
+
+\begin{tcolorbox}
+    \begin{definition}
+        The variance of a data set is the arithmetic mean of the \emph{squared} differences of points from the mean.
+    \end{definition}
+    \begin{definition}
+        The standard deviation of a data set is the square root of the variance.
+    \end{definition}
+\end{tcolorbox}
+
+The reason we use this system instead of using absolute values is partially because this preserves differentiability while eliminating negative values and ensuring that standard deviation is in the same units as the data, among other reasons.
+
+Before we define variance and standard deviation mathematically, it would be wise to understand how we arrive at them. As we said before, the variance is the mean of the squared differences of points from the mean of the data. Thus, we need to find an expression which denotes the \textit{sum} of the squared differences of points from the mean of the data, since the mean is $\frac{\sum x}{n}$.
+
+This is quite simple, of course, as we see that the difference of a point $x_i$'s value from the mean is simply $(x_i - \bar{x})$. We can square this to be $(x_i - \bar{x})^2$, and sum for all $i$ in the dataset with $\sum_{i=1}^n (x_i - \bar{x})^2$. We generally write this as $\sum (x - \bar{x})^2$.
+
+This is a summary statistic in itself, referred to as the \textit{sum of squares of deviations of $x$ from the mean}, and we notate it as $S_{xx}$.
+
+\begin{tcolorbox}
+    \begin{definition}[Sum of squares of deviations of $x$ from the mean]
+        $$S_{xx} = \sum (x - \bar{x})^2$$
+    \end{definition}
+\end{tcolorbox}
+
+This form is, unfortunately, cumbersome to use when calculating $S_{xx}$ by hand. Fortunately, other forms can easily be found. These are the most common three.
+
+\begin{tcolorbox}[breakable]
+    \begin{claim}
+        $$S_{xx} = \sum (x - \bar{x})^2 = \sum x^2 - \frac{(\sum x)^2}{n} = \sum x^2 - n\bar{x}^2$$
+    \end{claim}
+\end{tcolorbox} 
+\begin{tcolorbox}[breakable]
+    \begin{proof}
+    Before we begin this proof, it is imperative to remember that you will \textbf{never} be asked to derive the forms of $S_{xx}$. These three forms are only for ease of use, and are given to you in the exam on the formula sheet.
+        \begin{align*}
+            S_{xx} = \sum_{i=1}^n (x_i-\bar{x})^2 &= \sum_{i=1}^n (x_i^2 - 2x_i\bar{x} + \bar{x}^2) \\
+            &= \sum_{i=1}^n x_i^2 - \sum_{i=1}^n 2x_i\bar{x} + \sum_{i=1}^n \bar{x}^2 \\
+            &= \sum_{i=1}^n x_i^2 - 2\bar{x}\sum_{i=1}^n x_i + \bar{x}^2 \sum_{i=1}^n 1 \\
+           \intertext{Because $\sum_{i=1}^n 1 = n$ and $\bar{x} = \frac{\sum_{i=1}^n x_i}{n}$, the following is true.}
+            &= \sum_{i=1}^n x_i^2 - 2\frac{(\displaystyle \sum_{i=1}^n x_i)^2}{n} + \frac{(\displaystyle \sum_{i=1}^n x_i)^2}{n}\\
+            &= \sum_{i=1}^n x_i^2 - \frac{(\displaystyle \sum_{i=1}^n x_i)^2}{n}
+        \end{align*}
+        Here we have proven the first part of our statement, that $S_{xx}=\sum x^2 - \frac{(\sum x)^2}{n}$. Now we shall prove that $S_{xx} = \sum x^2 - n\bar{x}^2$.
+
+        \begin{align*}
+            S_{xx} = \sum_{i=1}^n (x_i-\bar{x})^2 &= \sum_{i=1}^n x_i^2 - \frac{(\displaystyle \sum_{i=1}^n x_i)^2}{n} \\
+            \intertext{Since the only difference between the two formulations is the way the second term is expressed, let us focus on this. If we can prove that $\frac{(\sum_{i=1}^n x_i)^2}{n} = n\bar{x}^2$, then the proof will be complete.}
+            \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n} &= \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n} \cdot \frac{n}{n} \\
+            &= \frac{n(\displaystyle\sum_{i=1}^n x_i)^2}{n^2} \\
+            &= n \cdot \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n^2} \\
+            \intertext{Reminding ourselves that $\bar{x} = \frac{\sum_{i=1}^n x_i}{n}$, we see the following.}
+            \bar{x}^2 &= \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n^2} \\
+            \intertext{Substituting this, we receive the following.}
+            n\bar{x}^2 &= n \cdot \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n^2}  \\
+            \intertext{Substituting this into the original equation for $S_{xx}$, we see our original claim.}
+            S_{xx} = \sum_{i=1}^n (x_i - \bar{x})^2 &= \sum_{i=1}^n x_i^2 - \frac{(\displaystyle\sum_{i=1}^n x_i)^2}{n} = \sum_{i=1}^n x_i^2 - n\bar{x}^2
+        \end{align*}
+    \end{proof}
+\end{tcolorbox}
+
+In an exam, you will be able to calculate $\sum x^2$ and $\sum x$ using your calculator if they are not given. They are important summary statistics, and $S_{xx}$ is a very useful summary statistic.
+
+Now that we have defined $S_{xx}$, we can recall that we defined variance as the arithmetic mean of the squared difference of points from the mean. Since we have found $S_{xx}$, which is the squared difference of points from the mean, all we need to do is take its arithmetic mean. Thus, we arrive at the following definition for \textit{population variance}.
+$$\sigma^2 = \frac{S_{xx}}{n}$$ where $\sigma^2$ is the population variance. The reason it is squared is so that we can use $\sigma$ as standard deviation, which is more common and arguably a more useful summary statistic.
+
+We can therefore define the \textit{population standard deviation}. $$\sigma = \sqrt{\frac{S_{xx}}{n}}$$ Since it is a population parameter, we have denoted it with the Greek lowercase letter $\sigma$. We often read standard deviation simply as "sigma".
+
+Since there is a population standard deviation and variance, you may expect there to be a \textit{sample standard deviation} and \textit{sample variance}, and there are. They are defined by the following formula. $$s = \sqrt{\frac{S_{xx}}{n-1}}$$ where $s$ is the sample standard deviation. (This is also given on the formula sheet, though the formula for $\sigma$ is not.) 
+
+\begin{tcolorbox}
+You may wonder why we have $n-1$ in the denominator, instead of $n$ like with $\sigma$. This is not something you will have to prove in the exam, nor is it within the scope of this book. You will find it in the dedicated \textsc{Holy Book of Proof}.
+\end{tcolorbox}
+
+\section{Frequency tables}
+
+When working with real data, you will most often find it presented in a frequency table. This allows data to be summarised more easily, and makes the data easier to work with.
+
+\subsection{Ungrouped data}
+
+A frequency table for ungrouped data is most commonly used for discrete data. It shows the frequency of individual values. We use $F$ (though commonly $f$) to denote the frequency. Here is an example of a frequency table.
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l}
+$x$ & $F$ \\ \hline
+1   & 2   \\ \hline
+2   & 4   \\ \hline
+3   & 3   \\ \hline
+4   & 9   \\ \hline
+5   & 7  
+\end{tabular}
+\end{table}
+It demonstrates the frequency of each discrete value clearly, and allows us to easily calculate summary statistics from it. Calculating the mode is very easy; you simply find the $x$ with the highest $F$. In this case, the mode is 4. 
+
+Calculating the median is more annoying, but not significantly more, as long as the data is organised in ascending values of $x$. First, find $\sum F = n$. Then, find $\frac{n+1}{2}$. Count up from the lowest $x$ value until you get to the value of $x$ where the $\frac{n+1}{2}$-th value lies. 
+
+For example, to calculate the median from this frequency table, we would find $n = 2+4+3+9+7 = 25$. $\frac{n+1}{2}=13.5$, so we will look for the 13th and 14th values. Counting up, the 1st and 2nd values are in $x=1$, the 3rd, 4th, 5th and 6th are in $x=2$, the 7th, 8th and 9th are in $x=3$, and the 10th, 11th, 12th, 13th and 14th (we do not need to continue) are in $x=4$. Therefore, the median is 4. 
+
+We should note here that if the value of $\frac{n+1}{2}$ was a whole number, we would just get one value as the median rather than having to deal with two. We should also note that if $\frac{n+1}{2}$ is not whole, and the two values on either side are on different $x$-values, then the median will be the number \textit{in between} those two $x$-values.
+
+Finally, calculating the mean has a simple formula from a frequency table, as follows. $$\bar{x}=\frac{\sum xF}{\sum F}$$
+
+\subsection{Grouped data}
